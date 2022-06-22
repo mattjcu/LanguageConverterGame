@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createAction, props } from '@ngrx/store';\nexport const loginRequest = createAction('[Auth] Login Request', props());\nexport const loginSuccess = createAction('[Auth] Login Success', props());\nexport const loginFailure = createAction('[Auth] Login Failure', props());","map":null,"metadata":{},"sourceType":"module"}

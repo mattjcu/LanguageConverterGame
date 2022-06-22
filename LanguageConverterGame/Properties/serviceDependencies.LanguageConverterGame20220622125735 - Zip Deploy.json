@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sql-playground-01/databases/Playground",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:PlayGroundDatabase",
+      "secretStore": null
+    }
+  }
+}

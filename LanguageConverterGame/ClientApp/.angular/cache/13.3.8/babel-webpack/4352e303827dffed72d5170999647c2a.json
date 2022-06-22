@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createAction, props } from '@ngrx/store';\nexport const getMessageRequest = createAction('[GetMessage] Message Request');\nexport const getMessageSuccess = createAction('[GetMessage] Message Success', props());\nexport const getMessageFailure = createAction('[GetMessage] Message Failure', props());","map":null,"metadata":{},"sourceType":"module"}

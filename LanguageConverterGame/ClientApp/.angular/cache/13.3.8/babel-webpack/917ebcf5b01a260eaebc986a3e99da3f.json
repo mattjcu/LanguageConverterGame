@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Message {\n  constructor(b = {}) {\n    this.visible = false;\n    Object.assign(this, b);\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

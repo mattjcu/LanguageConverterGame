@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createEntityAdapter } from '@ngrx/entity';\nexport const messageAdapter = createEntityAdapter({});","map":null,"metadata":{},"sourceType":"module"}

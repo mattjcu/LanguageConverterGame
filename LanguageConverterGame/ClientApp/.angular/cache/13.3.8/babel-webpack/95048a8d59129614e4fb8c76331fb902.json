@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createEntityAdapter } from '@ngrx/entity';\nexport const adapter = createEntityAdapter({});\nexport const {\n  selectAll: selectAllMessage\n} = adapter.getSelectors();","map":null,"metadata":{},"sourceType":"module"}

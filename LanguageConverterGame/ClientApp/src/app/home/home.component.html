@@ -1,0 +1,66 @@
+<section class="vh-100 bg-image" *ngIf="(jwtToken$ | async) && (messages | async)">
+  <h3>
+    <strong>Welcome {{ userName }}</strong>
+  </h3>
+  <div class="content-wrapper mask d-flex align-items-center h-100 ">
+    <div class="row gutters container h-100">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card m-0">
+          <div class="row no-gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="chat-container" *ngFor="let msg of messages | async; index as i">
+                <ul class="chat-box chatContainerScroll">
+                  <li class="person" data-chat="person1">
+                    <div class="user"></div>
+                    <p class="name-time">
+                      <strong class="name">{{msg.userName}}</strong>
+                    </p>
+                  </li>
+                  <li class="chat-left">
+                    <div *ngIf="!translate" class="chat-text">{{msg.translatedMessage}}</div>
+                    <div *ngIf="translate" class="chat-text">{{msg.message}} </div>
+                  </li>
+                </ul>
+              </div>
+              <form [formGroup]="messageForm" novalidate (submit)="onSubmit()" class="">
+                <div class="input-group mt-3 mb-0">
+                  <input formControlName="message" type="text" class="form-control" rows="3"
+                    placeholder="Write a message" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+              </form>
+              <button class="btn btn-primary gradient-custom-4 btn btn-success btn-lg" (click)="translateMessage()">Translate current message</button>
+              <div *ngIf="(translatedMessage)" >{{ translatedMessage }}</div>
+              <div class="chat-right" *ngIf="(messages | async)">
+                <button type="button" (click)="translate=!translate" class="btn btn-primary gradient-custom-4 btn btn-success btn-block btn-lg">
+                  <span *ngIf="translate">Translate all messages to Inflationary English</span>
+                  <span *ngIf="!translate">Translate all messages to English</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="vh-100 bg-image" *ngIf="!(jwtToken$ | async)">
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 *ngIf="!(jwtToken$ | async)" class="text-uppercase text-center mb-5">Please login to see the Message
+                board!</h2>
+              <p class="text-center text-muted mt-5 mb-0">Need to register your account? <a routerLink="/register"
+                  class="fw-bold text-body"><u>Register here</u></a></p>
+              <p class="text-center text-muted mt-5 mb-0">Already have an account? <a routerLink="/login"
+                  class="fw-bold text-body"><u>Login here</u></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
